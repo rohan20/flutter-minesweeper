@@ -50,14 +50,9 @@ class _GameBoardState extends State<GameBoard> {
         TileState tileState = gameTilesState[i][j];
 
         if (tileState == TileState.covered) {
-          rowChildren.add(GestureDetector(
-            child: Container(
-              margin: const EdgeInsets.all(1.0),
-              height: 30.0,
-              width: 30.0,
-              color: Colors.grey,
-            ),
-          ));
+          rowChildren.add(
+            GameBoardCell(),
+          );
         }
       }
 
@@ -83,6 +78,25 @@ class _GameBoardState extends State<GameBoard> {
       color: Colors.white,
       child: Center(
         child: buildBoard(),
+      ),
+    );
+  }
+}
+
+class GameBoardCell extends StatefulWidget {
+  @override
+  _GameBoardCellState createState() => _GameBoardCellState();
+}
+
+class _GameBoardCellState extends State<GameBoardCell> {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      child: Container(
+        margin: const EdgeInsets.all(1.0),
+        height: 35.0,
+        width: 35.0,
+        color: Colors.grey[400],
       ),
     );
   }
