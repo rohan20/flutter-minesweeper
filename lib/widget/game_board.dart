@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:minesweeper/game_page.dart';
 import 'package:minesweeper/widget/game_board_tile.dart';
+import 'dart:math';
 
 class GameBoard extends StatefulWidget {
   @override
@@ -13,11 +14,35 @@ class _GameBoardState extends State<GameBoard> {
   final int numOfMines = 11;
 
   List<List<TileState>> gameTilesState;
+  List<List<bool>> gameTilesStatus;
 
   void resetBoard() {
+
+    //2D list for tile status (covered/blown/open/flagged/revealed)
     gameTilesState = List<List<TileState>>.generate(numOfRows, (row) {
       return List<TileState>.filled(numOfColumns, TileState.covered);
     });
+
+    //2D list for tile mine status (true for mine, false for normal)
+    gameTilesStatus = List<List<bool>>.generate(numOfRows, (row) {
+      return List<bool>.filled(numOfColumns, false);
+    });
+
+    //logic to place mines on the game board
+    Random random = Random();
+    int remainingNumOfMines = numOfMines;
+
+    while (remainingNumOfMines > 0) {
+      int positionOfMine = random.nextInt(numOfRows * numOfColumns);
+      int rowIndexOfMine = positionOfMine ~/ numOfRows;
+      int columnIndexOfMine = positionOfMine % numOfColumns;
+
+      //check if new position doesn't have a mine already
+      if (!gameTilesStatus[rowIndexOfMine][columnIndexOfMine]) {
+        gameTilesStatus[rowIndexOfMine][columnIndexOfMine] = true;
+        remainingNumOfMines--;
+      }
+    }
   }
 
   @override
