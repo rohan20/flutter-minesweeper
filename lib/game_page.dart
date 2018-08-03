@@ -51,7 +51,7 @@ class _GameBoardState extends State<GameBoard> {
 
         if (tileState == TileState.covered) {
           rowChildren.add(
-            GameBoardCell(),
+            GameBoardTile(),
           );
         }
       }
@@ -83,12 +83,12 @@ class _GameBoardState extends State<GameBoard> {
   }
 }
 
-class GameBoardCell extends StatefulWidget {
+class GameBoardTile extends StatefulWidget {
   @override
-  _GameBoardCellState createState() => _GameBoardCellState();
+  _GameBoardTileState createState() => _GameBoardTileState();
 }
 
-class _GameBoardCellState extends State<GameBoardCell> {
+class _GameBoardTileState extends State<GameBoardTile> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
