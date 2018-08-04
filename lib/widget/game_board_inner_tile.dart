@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class BoardInnerTile extends StatefulWidget {
+class GameBoardInnerTile extends StatefulWidget {
   @override
   _BoardInnerTileState createState() => _BoardInnerTileState();
 }
 
-class _BoardInnerTileState extends State<BoardInnerTile> {
+class _BoardInnerTileState extends State<GameBoardInnerTile> {
   @override
   Widget build(BuildContext context) {
     return Container(
