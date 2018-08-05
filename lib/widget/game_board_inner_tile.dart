@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-class GameBoardInnerTile extends StatefulWidget {
-  @override
-  _BoardInnerTileState createState() => _BoardInnerTileState();
-}
+class GameBoardInnerTile extends StatelessWidget {
+  final Widget child;
 
-class _BoardInnerTileState extends State<GameBoardInnerTile> {
+  GameBoardInnerTile({this.child});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,6 +12,7 @@ class _BoardInnerTileState extends State<GameBoardInnerTile> {
       margin: const EdgeInsets.all(2.0),
       height: 25.0,
       width: 25.0,
+      child: child,
     );
   }
 }
