@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:minesweeper/widget/game_board_inner_tile.dart';
 import 'package:minesweeper/widget/game_board_tile.dart';
 
+
+/*
+CoveredMineTile = Flagged Tile or Un-flagged tile, both un-opened
+ */
 class CoveredMineTile extends StatelessWidget {
   final bool flagged;
   final int posX;
