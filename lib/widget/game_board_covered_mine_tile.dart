@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:minesweeper/widget/game_board_inner_tile.dart';
+import 'package:minesweeper/widget/game_board_tile.dart';
 
 class CoveredMineTile extends StatelessWidget {
   final bool flagged;
@@ -9,6 +11,20 @@ class CoveredMineTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Tile(
+      child: InnerTile(
+        child: flagged
+            ? Center(
+                child: Text(
+                  "F",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              )
+            : InnerTile(),
+      ),
+    );
   }
 }
