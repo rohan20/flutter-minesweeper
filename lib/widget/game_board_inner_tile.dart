@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class GameBoardInnerTile extends StatelessWidget {
+class InnerTile extends StatelessWidget {
   final Widget child;
 
-  GameBoardInnerTile({this.child});
+  InnerTile({this.child});
 
   @override
   Widget build(BuildContext context) {

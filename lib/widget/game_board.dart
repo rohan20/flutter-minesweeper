@@ -62,7 +62,7 @@ class _GameBoardState extends State<GameBoard> {
 
         if (tileState == TileState.covered) {
           rowChildren.add(
-            GameBoardTile(),
+            Tile(),
           );
         }
       }
