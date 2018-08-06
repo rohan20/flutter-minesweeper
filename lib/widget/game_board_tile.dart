@@ -16,7 +16,7 @@ class _GameBoardTileState extends State<Tile> {
       child: Container(
         child: widget.child,
         margin: const EdgeInsets.all(1.0),
-        padding: const EdgeInsets.all(2.0),
+        padding: const EdgeInsets.all(0.5),
         height: 35.0,
         width: 35.0,
         color: Colors.grey[400],
