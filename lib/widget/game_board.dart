@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:minesweeper/game_page.dart';
+import 'package:minesweeper/widget/game_board_covered_mine_tile.dart';
 import 'package:minesweeper/widget/game_board_tile.dart';
 import 'dart:math';
 
@@ -17,7 +18,6 @@ class _GameBoardState extends State<GameBoard> {
   List<List<bool>> gameTilesStatus;
 
   void resetBoard() {
-
     //2D list for tile status (covered/blown/open/flagged/revealed)
     gameTilesState = List<List<TileState>>.generate(numOfRows, (row) {
       return List<TileState>.filled(numOfColumns, TileState.covered);
@@ -39,7 +39,7 @@ class _GameBoardState extends State<GameBoard> {
 
       //check if new position doesn't have a mine already
       if (!gameTilesStatus[rowIndexOfMine][columnIndexOfMine]) {
-        gameTilesStatus[rowIndexOfMine][columnIndexOfMine] = true;
+        gameTilesStatus[rowIndexOfMine][columnIndexOfMine] = false;
         remainingNumOfMines--;
       }
     }
@@ -60,9 +60,15 @@ class _GameBoardState extends State<GameBoard> {
       for (int j = 0; j < numOfColumns; j++) {
         TileState tileState = gameTilesState[i][j];
 
-        if (tileState == TileState.covered) {
+        if (tileState == TileState.covered || tileState == TileState.flagged) {
           rowChildren.add(
-            Tile(),
+            Tile(
+              child: CoveredMineTile(
+                flagged: tileState == TileState.flagged,
+                posX: i,
+                posY: j,
+              ),
+            ),
           );
         }
       }
