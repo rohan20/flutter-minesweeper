@@ -98,9 +98,11 @@ class _GameBoardState extends State<GameBoard> {
   }
 
   /*
-  Check if the tile tapped lies inside the board or not
+  Check if the tile tapped lies inside the board or not. This is needed so that
+  you don't have to do extra handling in the surroundingMinesCount() method when
+  x or y become < 0 or greater than numOfColumns/numOfRows.
    */
-  bool inBoard(int x, int y) =>
+  bool isInBoard(int x, int y) =>
       x > 0 && x < numOfColumns && y > 0 && y < numOfRows;
 
   /*
@@ -108,7 +110,7 @@ class _GameBoardState extends State<GameBoard> {
   Return 1 so that this can help with the surroundingMinesCount() method. 
    */
   int isAMine(int x, int y) =>
-      inBoard(x, y) && gameTilesMineStatus[y][x] ? 1 : 0;
+      isInBoard(x, y) && gameTilesMineStatus[y][x] ? 1 : 0;
 
   /*
   Calculate the number of mines around a tile. The count would act as the number
