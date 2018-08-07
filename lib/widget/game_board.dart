@@ -97,6 +97,43 @@ class _GameBoardState extends State<GameBoard> {
     );
   }
 
+  /*
+  Check if the tile tapped lies inside the board or not
+   */
+  bool inBoard(int x, int y) =>
+      x > 0 && x < numOfColumns && y > 0 && y < numOfRows;
+
+  /*
+  Check if the current tile has a mine or not. If it is, return 1 else return 0.
+  Return 1 so that this can help with the surroundingMinesCount() method. 
+   */
+  int isAMine(int x, int y) =>
+      inBoard(x, y) && gameTilesMineStatus[y][x] ? 1 : 0;
+
+  /*
+  Calculate the number of mines around a tile. The count would act as the number
+  to be displayed on the tile
+   */
+  int surroundingMinesCount(int x, int y) {
+    int count = 0;
+
+    //check left column
+    count += isAMine(x - 1, y - 1);
+    count += isAMine(x - 1, y);
+    count += isAMine(x - 1, y + 1);
+
+    //check same column
+    count += isAMine(x, y - 1);
+    count += isAMine(x, y + 1);
+
+    //check right column
+    count += isAMine(x + 1, y - 1);
+    count += isAMine(x + 1, y);
+    count += isAMine(x + 1, y + 1);
+
+    return count;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
