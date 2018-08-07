@@ -16,7 +16,7 @@ class _GameBoardState extends State<GameBoard> {
   final int numOfMines = 11;
 
   List<List<TileState>> gameTilesState;
-  List<List<bool>> gameTilesStatus;
+  List<List<bool>> gameTilesMineStatus;
 
   void resetBoard() {
     //2D list for tile status (covered/blown/open/flagged/revealed)
@@ -25,7 +25,7 @@ class _GameBoardState extends State<GameBoard> {
     });
 
     //2D list for tile mine status (true for mine, false for normal)
-    gameTilesStatus = List<List<bool>>.generate(numOfRows, (row) {
+    gameTilesMineStatus = List<List<bool>>.generate(numOfRows, (row) {
       return List<bool>.filled(numOfColumns, false);
     });
 
@@ -39,8 +39,8 @@ class _GameBoardState extends State<GameBoard> {
       int columnIndexOfMine = positionOfMine % numOfColumns;
 
       //check if new position doesn't have a mine already
-      if (!gameTilesStatus[rowIndexOfMine][columnIndexOfMine]) {
-        gameTilesStatus[rowIndexOfMine][columnIndexOfMine] = true;
+      if (!gameTilesMineStatus[rowIndexOfMine][columnIndexOfMine]) {
+        gameTilesMineStatus[rowIndexOfMine][columnIndexOfMine] = true;
         remainingNumOfMines--;
       }
     }
