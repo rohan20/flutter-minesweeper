@@ -103,7 +103,7 @@ class _GameBoardState extends State<GameBoard> {
   x or y become < 0 or greater than numOfColumns/numOfRows.
    */
   bool isInBoard(int x, int y) =>
-      x > 0 && x < numOfColumns && y > 0 && y < numOfRows;
+      x >= 0 && x < numOfColumns && y >= 0 && y < numOfRows;
 
   /*
   Check if the current tile has a mine or not. If it is, return 1 else return 0.
