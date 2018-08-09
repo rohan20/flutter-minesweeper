@@ -12,6 +12,17 @@ class OpenMineTile extends StatelessWidget {
 
   OpenMineTile({this.state, this.surroundingMinesCount});
 
+  final List textColorsList = [
+    Colors.blue,
+    Colors.green,
+    Colors.red,
+    Colors.purple,
+    Colors.cyan,
+    Colors.amber,
+    Colors.brown,
+    Colors.black,
+  ];
+
   @override
   Widget build(BuildContext context) {
     Widget text;
@@ -21,8 +32,9 @@ class OpenMineTile extends StatelessWidget {
         text = Text(
           "$surroundingMinesCount",
           style: TextStyle(
-            color: Colors.blue,
+            color: textColorsList[surroundingMinesCount - 1],
             fontWeight: FontWeight.bold,
+            fontSize: 20.0,
           ),
         );
       }

@@ -60,6 +60,7 @@ class _GameBoardState extends State<GameBoard> {
 
       for (int x = 0; x < numOfColumns; x++) {
         TileState tileState = gameTilesState[y][x];
+        int minesNearMeCount = surroundingMinesCount(x, y);
 
         if (tileState == TileState.covered || tileState == TileState.flagged) {
           rowChildren.add(
@@ -83,7 +84,7 @@ class _GameBoardState extends State<GameBoard> {
           rowChildren.add(
             OpenMineTile(
               state: tileState,
-              surroundingMinesCount: 1,
+              surroundingMinesCount: minesNearMeCount,
             ),
           );
         }
