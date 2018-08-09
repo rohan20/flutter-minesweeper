@@ -20,8 +20,8 @@
       <file leaf-file-name="game_board.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/widget/game_board.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="235" column="27" lean-forward="true" selection-start-line="235" selection-start-column="27" selection-end-line="235" selection-end-column="27" />
+            <state relative-caret-position="185">
+              <caret line="67" column="30" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -62,6 +62,7 @@
       <find>Gesture</find>
       <find>InnerTi</find>
       <find>i</find>
+      <find>onLong</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -205,7 +206,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
-      <window_info active="true" id="Build Variants" order="2" sideWeight="0.50333333" side_tool="true" visible="true" weight="0.16329479" />
+      <window_info id="Build Variants" order="2" sideWeight="0.50333333" side_tool="true" visible="true" weight="0.16329479" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5007225" side_tool="true" weight="0.2055866" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Dart Analysis" order="7" weight="0.240625" />
@@ -224,7 +225,7 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49927744" weight="0.33966482" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32916668" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49927744" visible="true" weight="0.32960895" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49927744" visible="true" weight="0.32960895" />
       <window_info id="Captures" order="2" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49666667" visible="true" weight="0.16329479" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -243,7 +244,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -379,8 +380,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/widget/game_board.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="235" column="27" lean-forward="true" selection-start-line="235" selection-start-column="27" selection-end-line="235" selection-end-column="27" />
+        <state relative-caret-position="185">
+          <caret line="67" column="30" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

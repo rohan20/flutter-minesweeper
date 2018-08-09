@@ -20,79 +20,29 @@ class _GameBoardState extends State<GameBoard> {
 
   void resetBoard() {
     //2D list for tile status (covered/blown/open/flagged/revealed)
-    gameTilesState = List < List < TileState
-    >
-    >
-        .
-    generate
-    (
-    numOfRows
-    ,
-    (
-    row
-    )
-    {
-    return List<TileState>.filled(numOfColumns,
-    TileState.covered);
-    }
-    );
+    gameTilesState = List<List<TileState>>.generate(numOfRows, (row) {
+      return List<TileState>.filled(numOfColumns, TileState.covered);
+    });
 
     //2D list for tile mine status (true for mine, false for normal)
-    gameTilesMineStatus
-    =
-    List
-    <
-    List
-    <
-    bool
-    >
-    >
-        .
-    generate
-    (
-    numOfRows
-    ,
-    (
-    row
-    )
-    {
-    return List<bool>.filled(numOfColumns,
-    false);
-    }
-    );
+    gameTilesMineStatus = List<List<bool>>.generate(numOfRows, (row) {
+      return List<bool>.filled(numOfColumns, false);
+    });
 
     //logic to place mines on the game board
-    Random
-    random
-    =
-    Random
-    (
-    );
-    int
-    remainingNumOfMines
-    =
-    numOfMines;
+    Random random = Random();
+    int remainingNumOfMines = numOfMines;
 
-    while
-    (
-    remainingNumOfMines
-    >
-    0
-    )
-    {
-    int positionOfMine = random.nextInt(numOfRows * numOfColumns
-    );
-    int rowIndexOfMine = positionOfMine ~/ numOfRows;
-    int
-    columnIndexOfMine = positionOfMine % numOfColumns;
+    while (remainingNumOfMines > 0) {
+      int positionOfMine = random.nextInt(numOfRows * numOfColumns);
+      int rowIndexOfMine = positionOfMine ~/ numOfRows;
+      int columnIndexOfMine = positionOfMine % numOfColumns;
 
-    //check if new position doesn't have a mine already
-    if (!gameTilesMineStatus
-    [rowIndexOfMine][columnIndexOfMine])
-    {
-    gameTilesMineStatus[rowIndexOfMine][columnIndexOfMine] = true;
-    remainingNumOfMines--;
-    }
+      //check if new position doesn't have a mine already
+      if (!gameTilesMineStatus[rowIndexOfMine][columnIndexOfMine]) {
+        gameTilesMineStatus[rowIndexOfMine][columnIndexOfMine] = true;
+        remainingNumOfMines--;
+      }
     }
   }
 
@@ -114,6 +64,9 @@ class _GameBoardState extends State<GameBoard> {
         if (tileState == TileState.covered || tileState == TileState.flagged) {
           rowChildren.add(
             GestureDetector(
+              onTap: () {
+                tapTile(x, y);
+              },
               onLongPress: () {
                 flag(x, y);
               },
@@ -235,14 +188,28 @@ class _GameBoardState extends State<GameBoard> {
     openTile(x + 1, y);
     openTile(x + 1, y - 1);
   }
-}
 
-@override
-Widget build(BuildContext context) {
-  return Container(
-    color: Colors.white,
-    child: Center(
-      child: buildBoard(),
-    ),
-  );
-}}
+  void tapTile(int x, int y) {
+    if (gameTilesState[y][x] == TileState.flagged) {
+      return;
+    }
+
+    setState(() {
+      if (gameTilesMineStatus[y][x]) {
+        gameTilesState[y][x] = TileState.blown;
+      } else {
+        openTile(x, y);
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      child: Center(
+        child: buildBoard(),
+      ),
+    );
+  }
+}
