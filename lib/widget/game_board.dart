@@ -20,29 +20,79 @@ class _GameBoardState extends State<GameBoard> {
 
   void resetBoard() {
     //2D list for tile status (covered/blown/open/flagged/revealed)
-    gameTilesState = List<List<TileState>>.generate(numOfRows, (row) {
-      return List<TileState>.filled(numOfColumns, TileState.covered);
-    });
+    gameTilesState = List < List < TileState
+    >
+    >
+        .
+    generate
+    (
+    numOfRows
+    ,
+    (
+    row
+    )
+    {
+    return List<TileState>.filled(numOfColumns,
+    TileState.covered);
+    }
+    );
 
     //2D list for tile mine status (true for mine, false for normal)
-    gameTilesMineStatus = List<List<bool>>.generate(numOfRows, (row) {
-      return List<bool>.filled(numOfColumns, false);
-    });
+    gameTilesMineStatus
+    =
+    List
+    <
+    List
+    <
+    bool
+    >
+    >
+        .
+    generate
+    (
+    numOfRows
+    ,
+    (
+    row
+    )
+    {
+    return List<bool>.filled(numOfColumns,
+    false);
+    }
+    );
 
     //logic to place mines on the game board
-    Random random = Random();
-    int remainingNumOfMines = numOfMines;
+    Random
+    random
+    =
+    Random
+    (
+    );
+    int
+    remainingNumOfMines
+    =
+    numOfMines;
 
-    while (remainingNumOfMines > 0) {
-      int positionOfMine = random.nextInt(numOfRows * numOfColumns);
-      int rowIndexOfMine = positionOfMine ~/ numOfRows;
-      int columnIndexOfMine = positionOfMine % numOfColumns;
+    while
+    (
+    remainingNumOfMines
+    >
+    0
+    )
+    {
+    int positionOfMine = random.nextInt(numOfRows * numOfColumns
+    );
+    int rowIndexOfMine = positionOfMine ~/ numOfRows;
+    int
+    columnIndexOfMine = positionOfMine % numOfColumns;
 
-      //check if new position doesn't have a mine already
-      if (!gameTilesMineStatus[rowIndexOfMine][columnIndexOfMine]) {
-        gameTilesMineStatus[rowIndexOfMine][columnIndexOfMine] = true;
-        remainingNumOfMines--;
-      }
+    //check if new position doesn't have a mine already
+    if (!gameTilesMineStatus
+    [rowIndexOfMine][columnIndexOfMine])
+    {
+    gameTilesMineStatus[rowIndexOfMine][columnIndexOfMine] = true;
+    remainingNumOfMines--;
+    }
     }
   }
 
@@ -151,13 +201,48 @@ class _GameBoardState extends State<GameBoard> {
     });
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: Center(
-        child: buildBoard(),
-      ),
-    );
+  void openTile(int x, int y) {
+    //if the user clicks outside the board
+    if (!isInBoard(x, y)) {
+      return;
+    }
+
+    //if the user clicks an already opened tile
+    if (gameTilesState[y][x] == TileState.open) {
+      return;
+    }
+
+    gameTilesState[y][x] = TileState.open;
+
+    //if you click a tile that has a number, the game would only open that tile.
+    //But if you click an empty tile, then we want to open all tiles nearby
+    // until we hit a tile that has a number
+    if (surroundingMinesCount(x, y) > 0) {
+      return;
+    }
+
+    //left column
+    openTile(x - 1, y + 1);
+    openTile(x - 1, y);
+    openTile(x - 1, y - 1);
+
+    //same column
+    openTile(x, y + 1);
+    openTile(x, y - 1);
+
+    //right column
+    openTile(x + 1, y + 1);
+    openTile(x + 1, y);
+    openTile(x + 1, y - 1);
   }
 }
+
+@override
+Widget build(BuildContext context) {
+  return Container(
+    color: Colors.white,
+    child: Center(
+      child: buildBoard(),
+    ),
+  );
+}}
