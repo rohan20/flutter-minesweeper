@@ -21,7 +21,7 @@ class _GameBoardState extends State<GameBoard> {
   void resetBoard() {
     //2D list for tile status (covered/blown/open/flagged/revealed)
     gameTilesState = List<List<TileState>>.generate(numOfRows, (row) {
-      return List<TileState>.filled(numOfColumns, TileState.blown);
+      return List<TileState>.filled(numOfColumns, TileState.covered);
     });
 
     //2D list for tile mine status (true for mine, false for normal)
@@ -55,19 +55,24 @@ class _GameBoardState extends State<GameBoard> {
   Widget buildBoard() {
     List<Row> gameBoardRow = <Row>[];
 
-    for (int i = 0; i < numOfRows; i++) {
+    for (int y = 0; y < numOfRows; y++) {
       List<Widget> rowChildren = <Widget>[];
 
-      for (int j = 0; j < numOfColumns; j++) {
-        TileState tileState = gameTilesState[i][j];
+      for (int x = 0; x < numOfColumns; x++) {
+        TileState tileState = gameTilesState[y][x];
 
         if (tileState == TileState.covered || tileState == TileState.flagged) {
           rowChildren.add(
-            Tile(
-              child: CoveredMineTile(
-                flagged: tileState == TileState.flagged,
-                posX: i,
-                posY: j,
+            GestureDetector(
+              onLongPress: () {
+                flag(x, y);
+              },
+              child: Tile(
+                child: CoveredMineTile(
+                  flagged: tileState == TileState.flagged,
+                  posX: y,
+                  posY: x,
+                ),
               ),
             ),
           );
@@ -84,7 +89,7 @@ class _GameBoardState extends State<GameBoard> {
       gameBoardRow.add(Row(
         children: rowChildren,
         mainAxisAlignment: MainAxisAlignment.center,
-        key: ValueKey<int>(i),
+        key: ValueKey<int>(y),
       ));
     }
 
@@ -134,6 +139,16 @@ class _GameBoardState extends State<GameBoard> {
     count += isAMine(x + 1, y + 1);
 
     return count;
+  }
+
+  void flag(int x, int y) {
+    setState(() {
+      if (gameTilesState[y][x] == TileState.flagged) {
+        gameTilesState[y][x] = TileState.covered;
+      } else {
+        gameTilesState[y][x] = TileState.flagged;
+      }
+    });
   }
 
   @override
