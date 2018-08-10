@@ -10,6 +10,7 @@ class GamePage extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: Text("Minesweeper"),
         ),
         body: GameBoard(),

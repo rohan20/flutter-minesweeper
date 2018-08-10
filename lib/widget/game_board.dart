@@ -82,7 +82,7 @@ class _GameBoardState extends State<GameBoard> {
     super.initState();
   }
 
-  Widget buildBoard() {
+  Widget _buildBoard() {
     //covered tile = un-opened tile
     bool doesBoardHaveACoveredTile = false;
 
@@ -279,10 +279,49 @@ class _GameBoardState extends State<GameBoard> {
 
   @override
   Widget build(BuildContext context) {
+    int timeElapsed = stopwatch.elapsedMilliseconds ~/ 1000;
+
     return Container(
       color: Colors.white,
-      child: Center(
-        child: buildBoard(),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              _buildTimerWidget(timeElapsed),
+            ],
+          ),
+          _buildBoard(),
+          _buildResetWidget(),
+        ],
+      ),
+    );
+  }
+
+  _buildTimerWidget(int timeElapsed) {
+    return Container(
+      padding: const EdgeInsets.all(24.0),
+      decoration: BoxDecoration(
+        color: Colors.yellow,
+        shape: BoxShape.circle,
+      ),
+      child: Text(
+        "$timeElapsed",
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 28.0,
+        ),
+      ),
+    );
+  }
+
+  _buildResetWidget() {
+    return RaisedButton(
+      onPressed: () => resetBoard(),
+      child: Container(
+        padding: const EdgeInsets.all(12.0),
+        child: Text("RESET"),
       ),
     );
   }
