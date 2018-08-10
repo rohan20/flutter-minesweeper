@@ -83,6 +83,9 @@ class _GameBoardState extends State<GameBoard> {
   }
 
   Widget buildBoard() {
+    //covered tile = un-opened tile
+    bool doesBoardHaveACoveredTile = false;
+
     List<Row> gameBoardRow = <Row>[];
 
     for (int y = 0; y < numOfRows; y++) {
@@ -120,6 +123,12 @@ class _GameBoardState extends State<GameBoard> {
               ),
             ),
           );
+
+          //if there are any tiles that are covered (haven't been opened or
+          //revealed yet), then doesBoardHaveACoveredTile is true
+          if (tileState == TileState.covered) {
+            doesBoardHaveACoveredTile = true;
+          }
         } else {
           rowChildren.add(
             OpenMineTile(
@@ -135,6 +144,15 @@ class _GameBoardState extends State<GameBoard> {
         mainAxisAlignment: MainAxisAlignment.center,
         key: ValueKey<int>(y),
       ));
+
+      //the user can win the game only when you've opened all the tiles and
+      //marked all mine tiles as flagged
+      if (!doesBoardHaveACoveredTile) {
+        if ((minesFound == numOfMines) && isUserAlive) {
+          hasUserWonGame = true;
+          stopwatch.stop();
+        }
+      }
     }
 
     return Container(

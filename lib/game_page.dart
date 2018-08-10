@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:minesweeper/widget/game_board.dart';
 
+//covered tile = un-opened tile
 enum TileState { covered, blown, open, flagged, revealed }
 
 class GamePage extends StatelessWidget {
