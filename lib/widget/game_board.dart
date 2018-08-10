@@ -38,6 +38,17 @@ class _GameBoardState extends State<GameBoard> {
     minesFound = 0;
     stopwatch.reset();
 
+    //cancel the timer if it was running previously
+    timer?.cancel();
+    //the callback method just invokes setState() because we want the time to update
+    //every second
+    timer = Timer.periodic(
+      Duration(seconds: 1),
+      (timer) {
+        setState(() {});
+      },
+    );
+
     //2D list for tile status (covered/blown/open/flagged/revealed)
     gameTilesState = List<List<TileState>>.generate(numOfRows, (row) {
       return List<TileState>.filled(numOfColumns, TileState.covered);
@@ -80,6 +91,14 @@ class _GameBoardState extends State<GameBoard> {
       for (int x = 0; x < numOfColumns; x++) {
         TileState tileState = gameTilesState[y][x];
         int minesNearMeCount = surroundingMinesCount(x, y);
+
+        //reveal all mines if user has clicked on a mine
+        if (!isUserAlive) {
+          if (tileState != TileState.blown)
+            //if the current tile has a mine, reveal it, else let it be
+            tileState =
+                gameTilesMineStatus[y][x] ? TileState.revealed : tileState;
+        }
 
         if (tileState == TileState.covered || tileState == TileState.flagged) {
           rowChildren.add(
