@@ -249,6 +249,10 @@ class _GameBoardState extends State<GameBoard> {
   }
 
   void tapTile(int x, int y) {
+    if (!isUserAlive) {
+      return;
+    }
+
     if (gameTilesState[y][x] == TileState.flagged) {
       return;
     }
@@ -256,8 +260,13 @@ class _GameBoardState extends State<GameBoard> {
     setState(() {
       if (gameTilesMineStatus[y][x]) {
         gameTilesState[y][x] = TileState.blown;
+        isUserAlive = false;
+        timer.cancel();
       } else {
         openTile(x, y);
+        if (!stopwatch.isRunning) {
+          stopwatch.start();
+        }
       }
     });
   }
