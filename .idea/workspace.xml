@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66605be6-25b7-4428-b974-fb6e9d72015e" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/widget/tiles/game_board_covered_mine_tile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/tiles/game_board_covered_mine_tile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widget/tiles/game_board_open_mine_tile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/tiles/game_board_open_mine_tile.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,11 +19,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="game_board_open_mine_tile.dart" pinned="false" current-in-tab="false">
+      <file leaf-file-name="game_board.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/widget/game_board.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="611">
+              <caret line="101" column="21" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="game_board_open_mine_tile.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/widget/tiles/game_board_open_mine_tile.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+            <state relative-caret-position="154">
+              <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -44,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game_board_covered_mine_tile.dart" pinned="false" current-in-tab="true">
+      <file leaf-file-name="game_board_covered_mine_tile.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/widget/tiles/game_board_covered_mine_tile.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+            <state relative-caret-position="490">
+              <caret line="29" column="17" lean-forward="true" selection-start-line="20" selection-start-column="23" selection-end-line="29" selection-end-column="17" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -67,7 +81,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>grey</find>
       <find>Gesture</find>
       <find>InnerTi</find>
       <find>i</find>
@@ -97,6 +110,7 @@
       <find>isUseral</find>
       <find>resetBoard</find>
       <find>&quot;F&quot;</find>
+      <find>&quot;M&quot;</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -111,12 +125,12 @@
         <option value="$PROJECT_DIR$/lib/widget/game_board_covered_mine_tile.dart" />
         <option value="$PROJECT_DIR$/lib/widget/game_board_open_mine_tile.dart" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
-        <option value="$PROJECT_DIR$/lib/widget/tiles/game_board_open_mine_tile.dart" />
         <option value="$PROJECT_DIR$/lib/game_page.dart" />
         <option value="$PROJECT_DIR$/lib/widget/tiles/game_board_inner_tile.dart" />
         <option value="$PROJECT_DIR$/lib/widget/game_board.dart" />
         <option value="$PROJECT_DIR$/lib/widget/tiles/game_board_tile.dart" />
         <option value="$PROJECT_DIR$/lib/widget/tiles/game_board_covered_mine_tile.dart" />
+        <option value="$PROJECT_DIR$/lib/widget/tiles/game_board_open_mine_tile.dart" />
       </list>
     </option>
   </component>
@@ -279,9 +293,9 @@
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49927744" visible="true" weight="0.15977654" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49927744" weight="0.15977654" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32916668" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49927744" weight="0.25027934" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49927744" visible="true" weight="0.25027934" />
       <window_info id="Captures" order="2" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49666667" visible="true" weight="0.16329479" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -403,16 +417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/widget/game_board.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2482">
-          <caret line="101" column="21" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/widget/tiles/game_board_tile.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -427,20 +431,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/widget/tiles/game_board_open_mine_tile.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/widget/tiles/game_board_covered_mine_tile.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+        <state relative-caret-position="490">
+          <caret line="29" column="17" lean-forward="true" selection-start-line="20" selection-start-column="23" selection-end-line="29" selection-end-column="17" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/widget/game_board.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="611">
+          <caret line="101" column="21" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/widget/tiles/game_board_open_mine_tile.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
         </state>
       </provider>
     </entry>

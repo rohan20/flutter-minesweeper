@@ -39,10 +39,14 @@ class OpenMineTile extends StatelessWidget {
         );
       }
     } else {
-      text = Text(
-        "M",
-        style: TextStyle(
-          color: Colors.red,
+      text = RichText(
+        textAlign: TextAlign.center,
+        text: TextSpan(
+          text: "\u2620",
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       );
     }

@@ -21,7 +21,7 @@ class CoveredMineTile extends StatelessWidget {
                 child: RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
-                    text: "\u2691",
+                    text: "\u2690",
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
