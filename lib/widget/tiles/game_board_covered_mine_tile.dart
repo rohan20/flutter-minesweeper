@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:minesweeper/widget/tiles/game_board_inner_tile.dart';
 import 'package:minesweeper/widget/tiles/game_board_tile.dart';
 
-
 /*
 CoveredMineTile = Flagged Tile or Un-flagged tile, both un-opened
  */
@@ -19,11 +18,14 @@ class CoveredMineTile extends StatelessWidget {
       child: InnerTile(
         child: flagged
             ? Center(
-                child: Text(
-                  "F",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
+                child: RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    text: "\u2691",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               )
