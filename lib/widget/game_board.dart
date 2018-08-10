@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:minesweeper/game_page.dart';
 import 'package:minesweeper/widget/tiles/game_board_covered_mine_tile.dart';
@@ -18,7 +20,24 @@ class _GameBoardState extends State<GameBoard> {
   List<List<TileState>> gameTilesState;
   List<List<bool>> gameTilesMineStatus;
 
+  bool isUserAlive;
+  bool hasUserWonGame;
+  int minesFound;
+  Timer timer;
+  Stopwatch stopwatch = Stopwatch();
+
+  @override
+  void dispose() {
+    timer?.cancel();
+    super.dispose();
+  }
+
   void resetBoard() {
+    isUserAlive = true;
+    hasUserWonGame = false;
+    minesFound = 0;
+    stopwatch.reset();
+
     //2D list for tile status (covered/blown/open/flagged/revealed)
     gameTilesState = List<List<TileState>>.generate(numOfRows, (row) {
       return List<TileState>.filled(numOfColumns, TileState.covered);
