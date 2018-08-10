@@ -15,7 +15,7 @@ class GameBoard extends StatefulWidget {
 class _GameBoardState extends State<GameBoard> {
   final int numOfRows = 9;
   final int numOfColumns = 9;
-  final int numOfMines = 2;
+  final int numOfMines = 11;
 
   List<List<TileState>> gameTilesState;
   List<List<bool>> gameTilesMineStatus;
@@ -145,14 +145,16 @@ class _GameBoardState extends State<GameBoard> {
         mainAxisAlignment: MainAxisAlignment.center,
         key: ValueKey<int>(y),
       ));
+    }
 
-      //the user can win the game only when you've opened all the tiles and
-      //marked all mine tiles as flagged
-      if (!doesBoardHaveACoveredTile) {
-        if ((minesFound == numOfMines) && isUserAlive) {
-          hasUserWonGame = true;
-          stopwatch.stop();
-        }
+    //the user can win the game only when you've opened all the tiles and
+    //marked all mine tiles as flagged
+    if (!doesBoardHaveACoveredTile) {
+      if ((minesFound == numOfMines) && isUserAlive) {
+        hasUserWonGame = true;
+        stopwatch.stop();
+        timer.cancel();
+        _showGameStatusDialog(true);
       }
     }
 
@@ -268,6 +270,7 @@ class _GameBoardState extends State<GameBoard> {
       if (gameTilesMineStatus[y][x]) {
         gameTilesState[y][x] = TileState.blown;
         isUserAlive = false;
+        _showGameStatusDialog(false);
         timer.cancel();
       } else {
         openTile(x, y);
@@ -336,17 +339,20 @@ class _GameBoardState extends State<GameBoard> {
 
   _buildTotalMineCountWidget() {
     return Container(
-      padding: const EdgeInsets.all(24.0),
+      height: 70.0,
+      width: 70.0,
       decoration: BoxDecoration(
         color: Colors.red,
         shape: BoxShape.circle,
       ),
-      child: Text(
-        "$numOfMines",
-        style: TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-          fontSize: 28.0,
+      child: Center(
+        child: Text(
+          "$numOfMines",
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 28.0,
+          ),
         ),
       ),
     );
@@ -354,18 +360,39 @@ class _GameBoardState extends State<GameBoard> {
 
   _buildMinesFoundCountWidget() {
     return Container(
-      padding: const EdgeInsets.all(24.0),
+      height: 70.0,
+      width: 70.0,
       decoration: BoxDecoration(
         color: Colors.green,
         shape: BoxShape.circle,
       ),
-      child: Text(
-        "$minesFound",
-        style: TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-          fontSize: 28.0,
+      child: Center(
+        child: Text(
+          "$minesFound",
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 28.0,
+          ),
         ),
+      ),
+    );
+  }
+
+  Future<Null> _showGameStatusDialog(bool wasGameWon) async {
+    await showDialog(
+        context: context,
+        builder: (context) {
+          return _gameStatusDialog(wasGameWon);
+        });
+  }
+
+  _gameStatusDialog(bool wasGameWon) {
+    return AlertDialog(
+      contentPadding: const EdgeInsets.all(12.0),
+      content: Text(
+        wasGameWon ? "You win" : "You lose",
+        textAlign: TextAlign.center,
       ),
     );
   }
