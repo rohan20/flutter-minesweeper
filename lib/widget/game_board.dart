@@ -15,7 +15,7 @@ class GameBoard extends StatefulWidget {
 class _GameBoardState extends State<GameBoard> {
   final int numOfRows = 9;
   final int numOfColumns = 9;
-  final int numOfMines = 11;
+  final int numOfMines = 2;
 
   List<List<TileState>> gameTilesState;
   List<List<bool>> gameTilesMineStatus;
@@ -36,7 +36,9 @@ class _GameBoardState extends State<GameBoard> {
     isUserAlive = true;
     hasUserWonGame = false;
     minesFound = 0;
+
     stopwatch.reset();
+    stopwatch.stop();
 
     //cancel the timer if it was running previously
     timer?.cancel();
@@ -270,8 +272,9 @@ class _GameBoardState extends State<GameBoard> {
       if (gameTilesMineStatus[y][x]) {
         gameTilesState[y][x] = TileState.blown;
         isUserAlive = false;
-        _showGameStatusDialog(false);
+        stopwatch.stop();
         timer.cancel();
+        _showGameStatusDialog(false);
       } else {
         openTile(x, y);
         if (!stopwatch.isRunning) {
