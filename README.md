@@ -15,6 +15,9 @@ A basic minesweeper game built using Flutter.
 5. Show world rankings based on high-scores
 6. Restrict timer time and hardcode the widget size
 
+### References:
+
+- [Tensor Programming's YouTube tutorial](https://www.youtube.com/watch?v=I4onjC9Mbc4&list=PLJbE2Yu2zumDqr_-hqpAN0nIr6m14TAsd&index=27)
 
 ## Getting Started
 
