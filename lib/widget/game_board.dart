@@ -104,7 +104,9 @@ class _GameBoardState extends State<GameBoard> {
           rowChildren.add(
             GestureDetector(
               onTap: () {
-                tapTile(x, y);
+                //allow user to click a tile only if it is covered (so that
+                //we can't click on flagged tiles)
+                if (tileState == TileState.covered) tapTile(x, y);
               },
               onLongPress: () {
                 flag(x, y);
