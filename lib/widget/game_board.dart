@@ -15,7 +15,7 @@ class GameBoard extends StatefulWidget {
 class _GameBoardState extends State<GameBoard> {
   final int numOfRows = 9;
   final int numOfColumns = 9;
-  final int numOfMines = 11;
+  final int numOfMines = 2;
 
   List<List<TileState>> gameTilesState;
   List<List<bool>> gameTilesMineStatus;
@@ -42,6 +42,7 @@ class _GameBoardState extends State<GameBoard> {
     timer?.cancel();
     //the callback method just invokes setState() because we want the time to update
     //every second
+
     timer = Timer.periodic(
       Duration(seconds: 1),
       (timer) {
@@ -289,6 +290,13 @@ class _GameBoardState extends State<GameBoard> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
+              Row(
+                children: <Widget>[
+                  _buildMinesFoundCountWidget(),
+                  SizedBox(width: 12.0),
+                  _buildTotalMineCountWidget(),
+                ],
+              ),
               _buildTimerWidget(timeElapsed),
             ],
           ),
@@ -307,7 +315,7 @@ class _GameBoardState extends State<GameBoard> {
         shape: BoxShape.circle,
       ),
       child: Text(
-        "$timeElapsed",
+        "${timeElapsed} s",
         style: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 28.0,
@@ -322,6 +330,42 @@ class _GameBoardState extends State<GameBoard> {
       child: Container(
         padding: const EdgeInsets.all(12.0),
         child: Text("RESET"),
+      ),
+    );
+  }
+
+  _buildTotalMineCountWidget() {
+    return Container(
+      padding: const EdgeInsets.all(24.0),
+      decoration: BoxDecoration(
+        color: Colors.red,
+        shape: BoxShape.circle,
+      ),
+      child: Text(
+        "$numOfMines",
+        style: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 28.0,
+        ),
+      ),
+    );
+  }
+
+  _buildMinesFoundCountWidget() {
+    return Container(
+      padding: const EdgeInsets.all(24.0),
+      decoration: BoxDecoration(
+        color: Colors.green,
+        shape: BoxShape.circle,
+      ),
+      child: Text(
+        "$minesFound",
+        style: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 28.0,
+        ),
       ),
     );
   }
