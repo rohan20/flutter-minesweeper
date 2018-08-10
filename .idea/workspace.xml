@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66605be6-25b7-4428-b974-fb6e9d72015e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/lib/widget/tiles/game_board_tile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/tiles/game_board_tile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widget/game_board.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/game_board.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="game_board.dart" pinned="false" current-in-tab="false">
+      <file leaf-file-name="game_board.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/widget/game_board.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="119" column="24" selection-start-line="119" selection-start-column="24" selection-end-line="119" selection-end-column="24" />
+            <state relative-caret-position="350">
+              <caret line="14" column="42" lean-forward="true" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -29,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game_board_tile.dart" pinned="false" current-in-tab="true">
+      <file leaf-file-name="game_board_tile.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/widget/tiles/game_board_tile.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="14" column="65" lean-forward="true" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
+            <state relative-caret-position="56">
+              <caret line="2" column="13" lean-forward="true" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -49,8 +49,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Gesture</find>
-      <find>InnerTi</find>
       <find>i</find>
       <find>onLong</find>
       <find>tapTile</find>
@@ -79,6 +77,8 @@
       <find>resetBoard</find>
       <find>&quot;F&quot;</find>
       <find>&quot;M&quot;</find>
+      <find>TileState.reveal</find>
+      <find>ope</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -95,10 +95,10 @@
         <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/game_page.dart" />
         <option value="$PROJECT_DIR$/lib/widget/tiles/game_board_inner_tile.dart" />
-        <option value="$PROJECT_DIR$/lib/widget/game_board.dart" />
         <option value="$PROJECT_DIR$/lib/widget/tiles/game_board_covered_mine_tile.dart" />
         <option value="$PROJECT_DIR$/lib/widget/tiles/game_board_open_mine_tile.dart" />
         <option value="$PROJECT_DIR$/lib/widget/tiles/game_board_tile.dart" />
+        <option value="$PROJECT_DIR$/lib/widget/game_board.dart" />
       </list>
     </option>
   </component>
@@ -262,9 +262,9 @@
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49927744" visible="true" weight="0.50614524" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49927744" weight="0.34748602" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32916668" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49927744" weight="0.11620112" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49927744" visible="true" weight="0.19888268" />
       <window_info id="Captures" order="2" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49666667" visible="true" weight="0.16329479" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -410,20 +410,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/widget/game_board.dart">
+    <entry file="file://$PROJECT_DIR$/lib/widget/tiles/game_board_tile.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="119" column="24" selection-start-line="119" selection-start-column="24" selection-end-line="119" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="56">
+          <caret line="2" column="13" lean-forward="true" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/widget/tiles/game_board_tile.dart">
+    <entry file="file://$PROJECT_DIR$/lib/widget/game_board.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="14" column="65" lean-forward="true" selection-start-line="14" selection-start-column="65" selection-end-line="14" selection-end-column="65" />
+        <state relative-caret-position="350">
+          <caret line="14" column="42" lean-forward="true" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
