@@ -204,11 +204,17 @@ class _GameBoardState extends State<GameBoard> {
   }
 
   void flag(int x, int y) {
+    if (!isUserAlive) {
+      return;
+    }
+
     setState(() {
       if (gameTilesState[y][x] == TileState.flagged) {
         gameTilesState[y][x] = TileState.covered;
+        minesFound--;
       } else {
         gameTilesState[y][x] = TileState.flagged;
+        minesFound++;
       }
     });
   }
