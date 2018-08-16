@@ -15,7 +15,7 @@ class GameBoard extends StatefulWidget {
 class _GameBoardState extends State<GameBoard> {
   final int numOfRows = 9;
   final int numOfColumns = 9;
-  final int numOfMines = 11;
+  final int numOfMines = 3;
 
   List<List<TileState>> gameTilesState;
   List<List<bool>> gameTilesMineStatus;
@@ -234,6 +234,9 @@ class _GameBoardState extends State<GameBoard> {
     if (gameTilesState[y][x] == TileState.open) {
       return;
     }
+
+    //if the user had flagged this tile previously, reduce the flagged count
+    if (gameTilesState[y][x] == TileState.flagged) minesFound--;
 
     gameTilesState[y][x] = TileState.open;
 
