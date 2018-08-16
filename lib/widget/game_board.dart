@@ -7,15 +7,19 @@ import 'package:minesweeper/widget/tiles/game_board_open_mine_tile.dart';
 import 'package:minesweeper/widget/tiles/game_board_tile.dart';
 import 'dart:math';
 
+enum GameResult { WON, LOST, TIME_LIMIT_EXCEEDED }
+
 class GameBoard extends StatefulWidget {
   @override
   _GameBoardState createState() => _GameBoardState();
 }
 
 class _GameBoardState extends State<GameBoard> {
+  final int timeLimit = 999;
+
   final int numOfRows = 9;
   final int numOfColumns = 9;
-  final int numOfMines = 3;
+  final int numOfMines = 11;
 
   List<List<TileState>> gameTilesState;
   List<List<bool>> gameTilesMineStatus;
@@ -38,10 +42,7 @@ class _GameBoardState extends State<GameBoard> {
     minesFound = 0;
 
     stopwatch.reset();
-    stopwatch.stop();
-
-    //cancel the timer if it was running previously
-    timer?.cancel();
+    _stopGameTimer();
     //the callback method just invokes setState() because we want the time to update
     //every second
 
@@ -154,9 +155,9 @@ class _GameBoardState extends State<GameBoard> {
     if (!doesBoardHaveACoveredTile) {
       if ((minesFound == numOfMines) && isUserAlive) {
         hasUserWonGame = true;
-        stopwatch.stop();
-        timer.cancel();
-        _showGameStatusDialog(true);
+        isUserAlive = false;
+        _stopGameTimer();
+        _showGameStatusDialog(GameResult.WON);
       }
     }
 
@@ -275,9 +276,8 @@ class _GameBoardState extends State<GameBoard> {
       if (gameTilesMineStatus[y][x]) {
         gameTilesState[y][x] = TileState.blown;
         isUserAlive = false;
-        stopwatch.stop();
-        timer.cancel();
-        _showGameStatusDialog(false);
+        _stopGameTimer();
+        _showGameStatusDialog(GameResult.LOST);
       } else {
         openTile(x, y);
         if (!stopwatch.isRunning) {
@@ -321,13 +321,19 @@ class _GameBoardState extends State<GameBoard> {
     int hundredsDigit = timeElapsed ~/ 100;
     int tensDigit = (timeElapsed - (hundredsDigit * 100)) ~/ 10;
 
+    if (timeElapsed > timeLimit) {
+      _stopGameTimer();
+      isUserAlive = false;
+      _showGameStatusDialog(GameResult.TIME_LIMIT_EXCEEDED);
+    }
+
     return Container(
       padding: const EdgeInsets.all(30.0),
       decoration: BoxDecoration(
         color: Colors.yellow,
         shape: BoxShape.circle,
       ),
-      child: timeElapsed > 999
+      child: timeElapsed > timeLimit
           ? Text(
               "∞",
               style: TextStyle(
@@ -397,19 +403,31 @@ class _GameBoardState extends State<GameBoard> {
     );
   }
 
-  Future<Null> _showGameStatusDialog(bool wasGameWon) async {
+  Future<Null> _showGameStatusDialog(gameResult) async {
     await showDialog(
         context: context,
         builder: (context) {
-          return _gameStatusDialog(wasGameWon);
+          return _gameStatusDialog(gameResult);
         });
   }
 
-  _gameStatusDialog(bool wasGameWon) {
+  _gameStatusDialog(gameResult) {
+    String resultText = "You lose.";
+
+    switch (gameResult) {
+      case GameResult.WON:
+        resultText = "You win.";
+        break;
+      case GameResult.TIME_LIMIT_EXCEEDED:
+        resultText = "Time up. You lose.";
+        break;
+      default:
+    }
+
     return AlertDialog(
       contentPadding: const EdgeInsets.all(12.0),
       content: Text(
-        wasGameWon ? "You win" : "You lose",
+        resultText,
         textAlign: TextAlign.center,
       ),
     );
@@ -428,5 +446,10 @@ class _GameBoardState extends State<GameBoard> {
         ),
       ),
     );
+  }
+
+  _stopGameTimer() {
+    stopwatch.stop();
+    timer?.cancel();
   }
 }
