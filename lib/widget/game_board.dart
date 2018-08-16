@@ -314,19 +314,31 @@ class _GameBoardState extends State<GameBoard> {
   }
 
   _buildTimerWidget(int timeElapsed) {
+    int unitsDigit = timeElapsed % 10;
+    int hundredsDigit = timeElapsed ~/ 100;
+    int tensDigit = (timeElapsed - (hundredsDigit * 100)) ~/ 10;
+
     return Container(
-      padding: const EdgeInsets.all(24.0),
+      padding: const EdgeInsets.all(30.0),
       decoration: BoxDecoration(
         color: Colors.yellow,
         shape: BoxShape.circle,
       ),
-      child: Text(
-        "${timeElapsed} s",
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 28.0,
-        ),
-      ),
+      child: timeElapsed > 999
+          ? Text(
+              "∞",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 24.0,
+              ),
+            )
+          : Row(
+              children: <Widget>[
+                _buildDigitContainer(hundredsDigit),
+                _buildDigitContainer(tensDigit),
+                _buildDigitContainer(unitsDigit),
+              ],
+            ),
     );
   }
 
@@ -396,6 +408,21 @@ class _GameBoardState extends State<GameBoard> {
       content: Text(
         wasGameWon ? "You win" : "You lose",
         textAlign: TextAlign.center,
+      ),
+    );
+  }
+
+  _buildDigitContainer(int digit) {
+    return Container(
+      width: 25.0,
+      child: Center(
+        child: Text(
+          "$digit",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 28.0,
+          ),
+        ),
       ),
     );
   }
