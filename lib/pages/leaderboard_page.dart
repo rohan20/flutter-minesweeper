@@ -62,9 +62,8 @@ class _ProfilePageState extends State<LeaderboardPage> {
         User user = usersList[index];
 
         return Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.fromLTRB(20.0, 8.0, 12.0, 8.0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Container(
                 width: 70.0,
@@ -77,18 +76,23 @@ class _ProfilePageState extends State<LeaderboardPage> {
                   ),
                 ),
               ),
-              SizedBox(width: 20.0),
-              Text(user.name, style: TextStyle(fontSize: 20.0)),
-              SizedBox(width: 12.0),
-              Container(
-                height: 50.0,
-                width: 50.0,
-                child: CircleAvatar(
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
-                  child: Text(user.score.toString(),
-                      style: TextStyle(fontSize: 24.0)),
+              Expanded(
+                child: Center(
+                    child: Text(user.name, style: TextStyle(fontSize: 20.0))),
+                flex: 3,
+              ),
+              Expanded(
+                child: Container(
+                  height: 50.0,
+                  width: 50.0,
+                  child: CircleAvatar(
+                    backgroundColor: Colors.blue,
+                    foregroundColor: Colors.white,
+                    child: Text(user.score.toString(),
+                        style: TextStyle(fontSize: 24.0)),
+                  ),
                 ),
+                flex: 1,
               ),
             ],
           ),
