@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66605be6-25b7-4428-b974-fb6e9d72015e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/Debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/Debug.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/Release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/Release.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/game_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/game_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widget/game_board.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/game_board.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widget/tiles/game_board_open_mine_tile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/tiles/game_board_open_mine_tile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minesweeper.iml" beforeDir="false" afterPath="$PROJECT_DIR$/minesweeper.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/profile_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/profile_page.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,7 +16,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Podfile" value="1" />
-          <entry key="dart" value="5" />
+          <entry key="dart" value="6" />
           <entry key="gitignore" value="2" />
           <entry key="gradle" value="8" />
           <entry key="xml" value="1" />
@@ -35,7 +25,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Dart" value="5" />
+          <entry key="Dart" value="6" />
           <entry key="Groovy" value="8" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="XML" value="1" />
@@ -44,14 +34,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dart" value="289" />
+          <entry key="dart" value="1675" />
           <entry key="gradle" value="27" />
           <entry key="yaml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Dart" value="289" />
+          <entry key="Dart" value="1675" />
           <entry key="Groovy" value="27" />
           <entry key="YAML" value="3" />
         </counts>
@@ -64,19 +54,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/pages/game_page.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/pages/profile_page.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="507">
+              <caret line="61" column="29" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#54#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,7 +76,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>hasUser</find>
       <find>hasUserWonGame</find>
       <find>isUseral</find>
       <find>resetBoard</find>
@@ -122,6 +105,7 @@
       <find>&gt; 999</find>
       <find>_stopGameTi</find>
       <find>999</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -149,9 +133,10 @@
         <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/game_page.dart" />
         <option value="$PROJECT_DIR$/android/app/build.gradle" />
-        <option value="$PROJECT_DIR$/lib/pages/profile_page.dart" />
         <option value="$PROJECT_DIR$/lib/widget/profile_icon.dart" />
         <option value="$PROJECT_DIR$/lib/pages/game_page.dart" />
+        <option value="$PROJECT_DIR$/lib/model/user_model.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/profile_page.dart" />
       </list>
     </option>
   </component>
@@ -181,30 +166,7 @@
             <path>
               <item name="minesweeper" type="b2602c69:ProjectViewProjectNode" />
               <item name="minesweeper" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="minesweeper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="minesweeper" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="minesweeper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="minesweeper" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="minesweeper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="minesweeper" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="minesweeper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="minesweeper" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -215,7 +177,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="Manif&#9;FILE&#9;file:///Users/rohan/IdeaProjects/minesweeper/android/app/src/main/AndroidManifest.xml&#10;game_boa&#9;FILE&#9;file:///Users/rohan/IdeaProjects/minesweeper/lib/widget/game_board.dart" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535110681503" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535114210094" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -288,7 +250,7 @@
     <frame x="1440" y="-72" width="1390" height="972" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49666667" visible="true" weight="0.18991098" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49666667" visible="true" weight="0.18991098" />
       <window_info id="Structure" order="1" sideWeight="0.5012563" side_tool="true" weight="0.18274112" />
       <window_info id="Designer" order="2" />
       <window_info id="Build Variants" order="3" sideWeight="0.50333333" side_tool="true" weight="0.16329479" />
@@ -300,14 +262,14 @@
       <window_info anchor="bottom" id="Messages" weight="0.17045455" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49927744" visible="true" weight="0.1590909" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49927744" visible="true" weight="0.21704546" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Dart Analysis" order="7" weight="0.240625" />
       <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49927744" weight="0.6181818" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49927744" weight="0.20340909" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007225" side_tool="true" weight="0.2055866" />
       <window_info anchor="bottom" id="Logcat" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32735425" />
@@ -424,17 +386,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/profile_page.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/pages/game_page.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/model/user_model.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/profile_page.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="61" column="29" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
