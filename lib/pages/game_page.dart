@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:minesweeper/pages/profile_page.dart';
 import 'package:minesweeper/widget/game_board.dart';
+import 'package:minesweeper/widget/leaderboard_icon.dart';
 import 'package:minesweeper/widget/profile_icon.dart';
 
 //covered tile = un-opened tile
@@ -15,6 +16,7 @@ class GamePage extends StatelessWidget {
           centerTitle: true,
           title: Text("Minesweeper"),
           actions: <Widget>[
+            LeaderboardIcon(),
             ProfileIcon(),
           ],
         ),
