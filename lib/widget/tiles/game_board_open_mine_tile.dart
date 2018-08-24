@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:minesweeper/game_page.dart';
+import 'package:minesweeper/pages/game_page.dart';
 import 'package:minesweeper/widget/tiles/game_board_inner_tile.dart';
 import 'package:minesweeper/widget/tiles/game_board_tile.dart';
 
