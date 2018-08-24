@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "603765012931",
+    "firebase_url": "https://minesweeper-flutter.firebaseio.com",
+    "project_id": "minesweeper-flutter",
+    "storage_bucket": "minesweeper-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:603765012931:android:f782bfdc6cfeb54a",
+        "android_client_info": {
+          "package_name": "com.example.minesweeper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "603765012931-m80us1bapcethkek9e5vp8q3tgdqhc1q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZbl5i4c0yKoebHmmuV7ZdoxUESuvScM0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
