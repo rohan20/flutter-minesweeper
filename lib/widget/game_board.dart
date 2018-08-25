@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:minesweeper/pages/game_page.dart';
 import 'package:minesweeper/widget/tiles/game_board_covered_mine_tile.dart';
@@ -19,7 +20,7 @@ class _GameBoardState extends State<GameBoard> {
 
   final int numOfRows = 9;
   final int numOfColumns = 9;
-  final int numOfMines = 11;
+  final int numOfMines = 3;
 
   List<List<TileState>> gameTilesState;
   List<List<bool>> gameTilesMineStatus;
@@ -154,6 +155,17 @@ class _GameBoardState extends State<GameBoard> {
     //marked all mine tiles as flagged
     if (!doesBoardHaveACoveredTile) {
       if ((minesFound == numOfMines) && isUserAlive) {
+        DocumentReference currentUserDocumentReference = Firestore.instance
+            .collection("users")
+            .document("1y7lOozokrP1T19GaBYk");
+
+        //update highscore
+        //TODO Update only if new time < highscore
+        Map<String, int> map = Map();
+        map.putIfAbsent("score", () => stopwatch.elapsed.inSeconds);
+
+        currentUserDocumentReference.setData(map, merge: true);
+
         hasUserWonGame = true;
         isUserAlive = false;
         _stopGameTimer();
