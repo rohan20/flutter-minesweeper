@@ -65,39 +65,49 @@ class _ProfilePageState extends State<LeaderboardPage> {
           padding: const EdgeInsets.fromLTRB(20.0, 8.0, 12.0, 8.0),
           child: Row(
             children: <Widget>[
-              Container(
-                width: 70.0,
-                height: 70.0,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(user.imageUrl),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Center(
-                    child: Text(user.name, style: TextStyle(fontSize: 20.0))),
-                flex: 3,
-              ),
-              Expanded(
-                child: Container(
-                  height: 50.0,
-                  width: 50.0,
-                  child: CircleAvatar(
-                    backgroundColor: Colors.blue,
-                    foregroundColor: Colors.white,
-                    child: Text(user.score.toString(),
-                        style: TextStyle(fontSize: 24.0)),
-                  ),
-                ),
-                flex: 1,
-              ),
+              _buildUserImage(user),
+              _buildUserName(user),
+              _buildUserScore(user),
             ],
           ),
         );
       },
+    );
+  }
+
+  _buildUserImage(User user) {
+    return Container(
+      width: 70.0,
+      height: 70.0,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: NetworkImage(user.imageUrl),
+        ),
+      ),
+    );
+  }
+
+  _buildUserName(User user) {
+    return Expanded(
+      child: Center(child: Text(user.name, style: TextStyle(fontSize: 20.0))),
+      flex: 3,
+    );
+  }
+
+  _buildUserScore(User user) {
+    return Expanded(
+      child: Container(
+        height: 50.0,
+        width: 50.0,
+        child: CircleAvatar(
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
+          child: Text(user.score.toString(), style: TextStyle(fontSize: 24.0)),
+        ),
+      ),
+      flex: 1,
     );
   }
 }
