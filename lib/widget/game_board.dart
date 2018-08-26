@@ -20,7 +20,7 @@ class _GameBoardState extends State<GameBoard> {
 
   final int numOfRows = 9;
   final int numOfColumns = 9;
-  final int numOfMines = 3;
+  final int numOfMines = 11;
 
   List<List<TileState>> gameTilesState;
   List<List<bool>> gameTilesMineStatus;
