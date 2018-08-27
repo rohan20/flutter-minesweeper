@@ -65,7 +65,7 @@ class _ProfilePageState extends State<LeaderboardPage> {
           padding: const EdgeInsets.fromLTRB(20.0, 8.0, 12.0, 8.0),
           child: Row(
             children: <Widget>[
-              _buildUserImage(user),
+              _buildUserImage(user, index),
               _buildUserName(user),
               _buildUserScore(user),
             ],
@@ -75,7 +75,7 @@ class _ProfilePageState extends State<LeaderboardPage> {
     );
   }
 
-  _buildUserImage(User user) {
+  _buildUserImage(User user, int index) {
     return Container(
       width: 70.0,
       height: 70.0,
@@ -84,6 +84,23 @@ class _ProfilePageState extends State<LeaderboardPage> {
         image: DecorationImage(
           fit: BoxFit.cover,
           image: NetworkImage(user.imageUrl),
+        ),
+      ),
+      child: Container(
+        alignment: Alignment.bottomRight,
+        child: CircleAvatar(
+          radius: 12.0,
+          foregroundColor: Colors.black,
+          backgroundColor: Colors.yellow,
+          child: Center(
+            child: Text(
+              "${index + 1}",
+              style: TextStyle(
+                fontSize: 12.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
         ),
       ),
     );
