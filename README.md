@@ -14,6 +14,7 @@ A basic minesweeper game built using Flutter.
 4. Add 'How to play' section since the long-press to add flag action isn't intuitive
 5. Show world rankings based on high-scores
 6. Restrict timer time and hardcode the widget size
+7. Get rid of the default Material Theme = Platform independent UI
 
 ### References:
 
